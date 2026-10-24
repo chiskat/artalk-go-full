@@ -10,7 +10,7 @@
 
 基于原始 `artalk/artalk-go` 镜像，解决了以下问题：
 
-- 如果用到了 [图片上传](https://artalk.js.org/zh/guide/backend/img-upload.html) 功能，原版需手动下载并挂载 [upgit](https://github.com/pluveto/upgit)，而且无法直接运行，因为 Artalk 基于 `alpine` 镜像，它缺少新版 `upgit` 的依赖包，会引起报错；此镜像已安装好 `upgit`，开箱即用
+- 如果用到了 [图片上传](https://artalk.js.org/zh/guide/backend/img-upload.html) 功能，原版需手动下载并挂载 [upgit](https://github.com/pluveto/upgit)，而且无法直接运行，因为 Artalk 基于 `alpine` 镜像，它缺少新版 `upgit` 的依赖包，会引起报错；此镜像已安装好 `upgit`，并为它单独提供所需的 glibc 运行库，开箱即用
 - 如果用到了 [IP 属地](https://artalk.js.org/zh/guide/frontend/ip-region.html) 功能，原版需手动下载并挂载 [ip2region](https://github.com/lionsoul2014/ip2region) 中的 [ip2region_v4.xdb](https://github.com/lionsoul2014/ip2region/blob/master/data/ip2region_v4.xdb) 数据库；此镜像中自带了最新版的 `ip2region_v4.xdb`，可以直接使用
 
 ## 使用方式
@@ -30,6 +30,8 @@ img_upload:
 ```
 
 即可直接使用 `upgit`。
+
+> 从 upgit 0.2 升级到 0.3 时，请按 [上游迁移指南](https://github.com/pluveto/upgit/blob/v0.3.0/docs/upgrade-from-0.2.md) 检查配置；上面的 `-c` 参数仍然可用。
 
 ---
 
