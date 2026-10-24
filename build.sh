@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
 ARTALK_VERSION_PREFIX="$(curl -fsSL https://api.github.com/repos/ArtalkJS/Artalk/releases/latest \
   | sed -n 's/.*"tag_name":[[:space:]]*"\([^"]*\)".*/\1/p' \
   | head -n 1)"
